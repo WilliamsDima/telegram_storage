@@ -1,0 +1,55 @@
+@import '../../../../styles/colors.scss';
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-color: transparent;
+
+  &.hidden {
+    background-color: transparent;
+    transform: translateY(-100px);
+  }
+
+  &.show {
+    background-color: $bgHeader;
+    transform: none;
+  }
+
+  &.clear {
+    background-color: transparent;
+  }
+
+  .headerContent {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin-left: 2rem;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: normal;
+
+      @extend %titleGragient;
+    }
+
+    .logo {
+      width: 64px;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+$bg: #1e1e1e;
+$white: #ffffff;
+$bgHeader: #1f2936;
+
+%titleGragient {
+  background: rgb(252, 212, 98);
+  background: linear-gradient(
+    90deg,
+    rgba(252, 212, 98, 1) 50%,
+    rgba(236, 240, 243, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
