@@ -1,22 +1,24 @@
-Шаблон для разработки мобильных приложений на Next js
+Шаблон для разработки на Next js
 
 ---
 
 ## Techstack
-[![typescript](https://img.shields.io/static/v1?label=typescript&message=4.8.4&color=3178C6&style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![node](https://img.shields.io/static/v1?label=node&message=14.5.0&color=026E00&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+
+[![typescript](https://img.shields.io/static/v1?label=typescript&message=4.9.3&color=3178C6&style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![node](https://img.shields.io/static/v1?label=node&message=16.5.0&color=026E00&style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en/)
+[![firebase](https://img.shields.io/static/v1?label=firebase&message=3.2.4&color=FFCB2C&style=for-the-badge&logo=firebase&logoColor=white)](https://firebase.com/)
 [![next](https://img.shields.io/static/v1?label=next&message=13.0.5&color=000000&style=for-the-badge&logo=next&logoColor=white)](https://nextjs.org/)
 [![react](https://img.shields.io/static/v1?label=react&message=18.2.0&color=61DBFB&style=for-the-badge&logo=react&logoColor=white)](https://ru.reactjs.org/)
-[![redux](https://img.shields.io/static/v1?label=redux&message=4.2.0&color=764ABD&style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
-[![reduxtoolkit](https://img.shields.io/static/v1?label=redux%20toolkit&message=1.9.0&color=764ABD&style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
-[![tailwindcss](https://img.shields.io/static/v1?label=tailwindcss&message=3.2.2&color=38BDF8&style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![sass](https://img.shields.io/static/v1?label=sass&message=7.0.3&color=BF4080&style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
-
+[![reduxtoolkit](https://img.shields.io/static/v1?label=redux%20toolkit&message=1.9.1&color=764ABD&style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
+[![tailwindcss](https://img.shields.io/static/v1?label=tailwindcss&message=3.2.4&color=38BDF8&style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![sass](https://img.shields.io/static/v1?label=sass&message=1.56.1&color=BF4080&style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
 
 ---
 
 ## Работа с шаблоном
+
 паттерны:
+
 - `hooks` - дирректория, которая хранит в себе кастомные хуки и хэперы.
 
 Также, в шаблоне структурированы компоненты по Atomic Design. Компоненты деляться на:
