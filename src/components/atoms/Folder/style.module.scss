@@ -1,0 +1,34 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+
+.folder {
+  width: 60px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+.one {
+  width: 35%;
+  height: 4px;
+  float: right;
+  background-color: $blue;
+  border-bottom: 0px solid $blue;
+  border-left: 4px solid $blue;
+  border-top-right-radius: 8px;
+  clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+  @extend %neonBorderAnim;
+}
+
+.two {
+  width: 100%;
+  height: 40px;
+  margin-top: 3px;
+  position: absolute;
+  background-color: $blue;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top: none;
+  @extend %neonBorderAnim;
+}

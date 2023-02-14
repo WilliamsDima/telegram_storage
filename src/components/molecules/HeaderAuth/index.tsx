@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
-import Button from 'atoms/Button'
 import Head from 'next/head'
 import styles from './style.module.scss'
 import { FcGoogle } from 'react-icons/fc'
+import Button from '../../atoms/Button'
 
 const HeaderAuth = memo(() => {
   return (

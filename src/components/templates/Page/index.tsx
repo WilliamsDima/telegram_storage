@@ -1,6 +1,7 @@
-import Header from 'organisms/Header'
 import React, { FC } from 'react'
 import Meta from '../../atoms/Meta'
+import MyParticles from '../../atoms/MyParticles'
+import Header from '../../organisms/Header'
 import styles from './style.module.scss'
 
 type Page = {
@@ -12,6 +13,7 @@ const Page: FC<Page> = ({ children }) => {
     <div className={styles.container}>
       <Meta />
       <Header />
+      <MyParticles />
 
       <main className={styles.main}>{children}</main>
     </div>

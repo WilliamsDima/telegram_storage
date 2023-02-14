@@ -1,0 +1,71 @@
+@import './colors.scss';
+
+%titleGragient {
+  background: rgb(252, 212, 98);
+  background: linear-gradient(
+    90deg,
+    rgba(252, 212, 98, 1) 50%,
+    rgba(236, 240, 243, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+%neonBorderAnim {
+  animation: pulsate 1.5s infinite alternate;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem $blue, 0 0 0.8rem $blue,
+    0 0 2.8rem $blue, inset 0 0 1.3rem $blue;
+
+  @keyframes pulsate {
+    100% {
+      text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px $blue,
+        0 0 80px $blue, 0 0 90px $blue, 0 0 100px $blue, 0 0 150px $blue;
+    }
+    0% {
+      text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px $blue,
+        0 0 45px $blue, 0 0 55px $blue, 0 0 70px $blue, 0 0 80px $blue;
+    }
+  }
+}
+
+%showAnimZoom {
+  animation-name: showBlock;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  transform: scale(0);
+
+  @keyframes showBlock {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+%showAnimUp {
+  animation-name: showBlockUp;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  transform: translateY(-300%);
+
+  @keyframes showBlockUp {
+    0% {
+      transform: translateY(-300%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
