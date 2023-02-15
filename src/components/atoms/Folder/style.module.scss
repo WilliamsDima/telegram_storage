@@ -1,34 +1,79 @@
 @import '../../../../styles/colors.scss';
 @import '../../../../styles/styles.scss';
 
-.folder {
-  width: 60px;
-  height: 40px;
-  position: relative;
+.folderWrapper {
   cursor: pointer;
-}
+  width: 80px;
+  height: 80px;
+  position: relative;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
 
-.one {
-  width: 35%;
-  height: 4px;
-  float: right;
-  background-color: $blue;
-  border-bottom: 0px solid $blue;
-  border-left: 4px solid $blue;
-  border-top-right-radius: 8px;
-  clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
-  @extend %neonBorderAnim;
-}
+  p {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.4;
+    color: $black;
+  }
 
-.two {
-  width: 100%;
-  height: 40px;
-  margin-top: 3px;
-  position: absolute;
-  background-color: $blue;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-left-radius: 8px;
-  border-top: none;
-  @extend %neonBorderAnim;
+  .folder {
+    position: relative;
+    width: 60px;
+    height: 40px;
+  }
+
+  &:hover {
+    .two::after {
+      transform: translateY(0);
+    }
+  }
+
+  .one {
+    width: 35%;
+    height: 4px;
+    float: right;
+    background-color: $blue;
+    border-bottom: 0px solid $blue;
+    border-left: 4px solid $blue;
+    border-top-right-radius: 8px;
+    clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .two {
+    width: 100%;
+    height: 40px;
+    margin-top: 3px;
+    position: absolute;
+    background-color: $blue;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top: none;
+
+    &::after {
+      position: absolute;
+      top: -2px;
+      left: 0px;
+      border-radius: 5px;
+      content: '';
+      z-index: -1;
+      display: block;
+      width: 100%;
+      height: 20px;
+      background-color: #ffffff;
+      transform: translateY(50%);
+      transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  }
+
+  &.neon {
+    .one,
+    .two {
+      @extend %neonBorderAnim;
+    }
+  }
 }

@@ -11,6 +11,17 @@
   -webkit-text-fill-color: transparent;
 }
 
+%titleGragientBlue {
+  background: rgb(94, 181, 247);
+  background: linear-gradient(
+    90deg,
+    rgba(94, 181, 247, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 %neonBorderAnim {
   animation: pulsate 1.5s infinite alternate;
   border: 1px solid #fff;
@@ -66,6 +77,43 @@
     }
     100% {
       transform: translateY(0);
+    }
+  }
+}
+
+%showAnimRight {
+  animation-name: showBlockRight;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  transform: translateX(300%);
+
+  @keyframes showBlockRight {
+    0% {
+      transform: translateX(300%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+%progressAnim {
+  animation-name: progressBlock;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  width: 0%;
+
+  @keyframes progressBlock {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 40%;
     }
   }
 }

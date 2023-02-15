@@ -45,7 +45,7 @@ const HomeFirstSection = memo(() => {
         </div>
 
         <div className={`${styles.folder} ${styles.imgBlock}`}>
-          <Folder />
+          <Folder neon={true} />
         </div>
       </div>
     </section>

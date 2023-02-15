@@ -5,8 +5,8 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
   margin-top: 5rem;
+  height: 560px;
 
   .description {
     // width: 30%;
@@ -32,7 +32,7 @@
 
   .cloud {
     opacity: 0.5;
-    width: 100%;
+    // width: 100%;
     height: auto;
     position: relative;
     z-index: 10;
