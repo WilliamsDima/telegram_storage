@@ -1,0 +1,33 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+
+.section {
+  display: flex;
+  align-items: center;
+  margin-top: 20rem;
+
+  &.visible {
+    .item .template {
+      opacity: 1;
+      @extend %showAnimZoom;
+    }
+  }
+
+  .item {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .template {
+      width: 500px;
+      background-color: rgba($white, 0.8);
+      height: 300px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+    }
+  }
+}

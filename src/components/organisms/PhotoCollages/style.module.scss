@@ -1,0 +1,18 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+
+.collages {
+  position: relative;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+    @extend %showAnimZoom;
+  }
+  .collage {
+    position: absolute;
+    bottom: -30%;
+    right: -90%;
+    z-index: -1;
+  }
+}

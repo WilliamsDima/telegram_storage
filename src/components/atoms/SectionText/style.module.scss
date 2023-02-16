@@ -1,0 +1,48 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+
+.sectionText {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  width: 100%;
+
+  &.visible {
+    opacity: 1;
+    @extend %showAnimRight;
+  }
+
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: $blue;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+
+    @extend %titleGragientBlueLeft;
+  }
+
+  p {
+    margin-top: 2rem;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .img {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.03;
+
+    img {
+      width: 200px;
+      height: auto;
+    }
+  }
+}

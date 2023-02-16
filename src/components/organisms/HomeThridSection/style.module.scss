@@ -3,18 +3,13 @@
 
 .section {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 20rem;
 
   .item {
     width: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    svg {
-      color: $blue;
-    }
+    justify-content: center;
   }
 }

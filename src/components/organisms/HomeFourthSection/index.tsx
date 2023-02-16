@@ -1,12 +1,12 @@
 import React, { memo, useEffect } from 'react'
 import styles from './style.module.scss'
-import HomeFolders from '../../molecules/HomeFolders'
-import { CgInfinity } from 'react-icons/cg'
 import { useIntersection } from '../../../hooks/useIntersection'
 import cn from 'classnames'
+import PhotoCollages from '../PhotoCollages'
+import Image from 'next/image'
 import SectionText from '../../atoms/SectionText'
 
-const HomeSecondSection = memo(() => {
+const HomeFourthSection = memo(() => {
   const { visible, ref } = useIntersection(1)
 
   useEffect(() => {}, [visible])
@@ -19,16 +19,22 @@ const HomeSecondSection = memo(() => {
       ref={ref}
     >
       <div className={styles.item}>
-        <HomeFolders visible={visible} />
+        <div className={styles.template}>
+          <span>тут дожен быть скриншот</span>
+        </div>
       </div>
 
       <div className={styles.item}>
-        <SectionText title={'бесконечное хранилище'} visible={visible}>
-          <CgInfinity fontSize={450} style={{ marginRight: '1rem' }} />
-        </SectionText>
+        <SectionText
+          title={'UI/UX'}
+          textStyle={{ width: '40%' }}
+          text={'Интуитивно понятный и удобный дизайн для использования.'}
+          visible={visible}
+          img="/images/ui.png"
+        />
       </div>
     </section>
   )
 })
 
-export default HomeSecondSection
+export default HomeFourthSection

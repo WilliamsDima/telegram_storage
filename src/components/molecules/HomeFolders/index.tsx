@@ -13,7 +13,7 @@ const dataFolders = [
   },
   {
     id: 2,
-    name: 'Документы для подрятчиков',
+    name: 'Документы для подрядчиков',
     delay: '0.7s',
   },
   {
@@ -28,7 +28,7 @@ const dataFolders = [
   },
   {
     id: 5,
-    name: 'Портфолео',
+    name: 'Портфолио',
     delay: '1s',
   },
 ]
