@@ -5,6 +5,7 @@ import Image from 'next/image'
 import cn from 'classnames'
 import { useScrollDirection } from '../../../hooks/useScrollDirection'
 import HeaderAuth from '../../molecules/HeaderAuth'
+import Logo from '../../atoms/Logo'
 
 const Header = () => {
   const scrollDirection = useScrollDirection()
@@ -21,13 +22,7 @@ const Header = () => {
     >
       <div className={styles.headerContent}>
         <div className={styles.product}>
-          <Image
-            src="/images/logo.png"
-            alt="logo"
-            width={512}
-            height={512}
-            className={styles.logo}
-          />
+          <Logo />
           <h1>Telegram Storage</h1>
         </div>
         <HeaderAuth />

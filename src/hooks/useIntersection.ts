@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 const DEFAULT_OPTIONS = {
   root: null,
   rootMargin: '0px',
-  threshold: 1.0,
+  threshold: 0.5,
 }
 
 export const useIntersection = (oneShow, options = DEFAULT_OPTIONS) => {

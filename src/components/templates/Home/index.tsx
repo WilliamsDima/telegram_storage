@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import Button from '../../atoms/Button'
 import HomeFirstSection from '../../organisms/HomeFirstSection'
 import HomeFourthSection from '../../organisms/HomeFourthSection'
 import HomeSecondSection from '../../organisms/HomeSecondSection'
@@ -14,6 +15,9 @@ const HomeTemplate: FC<Page> = ({}) => {
       <HomeSecondSection />
       <HomeThridSection />
       <HomeFourthSection />
+      <div className={styles.btn}>
+        <Button pulseAnim>начать пользоваться</Button>
+      </div>
     </div>
   )
 }

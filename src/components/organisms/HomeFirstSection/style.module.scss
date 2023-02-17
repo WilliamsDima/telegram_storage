@@ -4,12 +4,13 @@
 .section {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 5rem;
-  height: 560px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 
   .description {
     // width: 30%;
+    margin-top: -30rem;
     @extend %showAnimUp;
     animation-delay: 0.5s;
     .descriptionText {
@@ -43,7 +44,6 @@
 
   .cloudRight {
     position: absolute;
-    top: 5rem;
 
     .imgBlock {
       position: absolute;

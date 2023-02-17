@@ -1,0 +1,61 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+
+.footer {
+  padding: 2rem;
+  padding-bottom: 0;
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .web {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: $white;
+    text-decoration: none;
+    margin-top: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .siteLogo {
+      width: 10px;
+      margin-right: 1rem;
+    }
+  }
+
+  .wrapp {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      margin-right: 3rem;
+      margin-top: -0.7rem;
+
+      &.logo {
+        img {
+          width: 30px;
+        }
+      }
+      h3 {
+        font-size: 16px;
+        @extend %titleGragient;
+        margin-left: 1rem;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+  }
+}

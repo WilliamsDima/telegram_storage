@@ -13,6 +13,7 @@
   &.visible {
     opacity: 1;
     @extend %showAnimRight;
+    animation-delay: 0s;
   }
 
   h2 {

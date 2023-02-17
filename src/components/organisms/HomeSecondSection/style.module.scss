@@ -2,10 +2,9 @@
 @import '../../../../styles/styles.scss';
 
 .section {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 3rem;
+  justify-content: flex-start;
 
   .item {
     width: 50%;
