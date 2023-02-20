@@ -11,6 +11,10 @@
   .icon {
     width: 44px;
     height: auto;
+
+    @media screen and (max-width: 1050px) {
+      width: 33px;
+    }
   }
 
   p {

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import Meta from '../../atoms/Meta'
 import MyParticles from '../../atoms/MyParticles'
 import Footer from '../../organisms/Footer'
@@ -17,7 +17,6 @@ const Page: FC<Page> = ({ children }) => {
       <MyParticles />
 
       <main className={styles.main}>{children}</main>
-      <Footer />
     </div>
   )
 }

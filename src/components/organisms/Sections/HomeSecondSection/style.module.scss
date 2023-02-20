@@ -1,0 +1,17 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/styles.scss';
+
+.item {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    color: $blue;
+
+    @media screen and (max-width: 1050px) {
+      width: 50%;
+    }
+  }
+}

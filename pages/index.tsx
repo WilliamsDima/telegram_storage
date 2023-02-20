@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Meta from '../src/components/atoms/Meta'
 import HomeTemplate from '../src/components/templates/Home'
 import Page from '../src/components/templates/Page'
 import style from '../styles/index.module.css'

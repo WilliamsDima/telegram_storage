@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
 import styles from './style.module.scss'
 import Image from 'next/image'
-import Folder from '../../atoms/Folder'
+import Folder from '../../../atoms/Folder'
+import Section from '../Section'
 
 const HomeFirstSection = memo(() => {
   return (
-    <section className={styles.section}>
+    <Section>
       <div className={styles.description}>
         <p className={styles.descriptionText}>
           <dfn title="Telegram Storage">Telegram Storage</dfn>Облачное
@@ -48,7 +49,7 @@ const HomeFirstSection = memo(() => {
           <Folder neon={true} />
         </div>
       </div>
-    </section>
+    </Section>
   )
 })
 

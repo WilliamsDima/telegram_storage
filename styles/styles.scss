@@ -1,5 +1,27 @@
 @import './colors.scss';
 
+%h1 {
+  color: $blue;
+  font-size: 44px;
+  font-weight: 700;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 32px;
+  }
+}
+
+%sectionTitle {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $blue;
+  text-align: center;
+  @media screen and (max-width: 1050px) {
+    font-size: 40px;
+  }
+}
+
 %titleGragient {
   background: rgb(252, 212, 98);
   background: linear-gradient(

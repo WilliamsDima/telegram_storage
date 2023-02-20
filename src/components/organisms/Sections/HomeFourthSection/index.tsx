@@ -1,24 +1,19 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useState } from 'react'
 import styles from './style.module.scss'
-import { useIntersection } from '../../../hooks/useIntersection'
+import SectionText from '../../../atoms/SectionText'
+import Section from '../Section'
 import cn from 'classnames'
-import PhotoCollages from '../PhotoCollages'
-import Image from 'next/image'
-import SectionText from '../../atoms/SectionText'
 
 const HomeFourthSection = memo(() => {
-  const { visible, ref } = useIntersection(1)
-
-  useEffect(() => {}, [visible])
+  const [visible, setVisible] = useState(false)
 
   return (
-    <section
-      className={cn(styles.section, {
-        [styles.visible]: visible,
-      })}
-      ref={ref}
-    >
-      <div className={styles.item}>
+    <Section setVisible={setVisible} overStyle={{ height: '50vh' }}>
+      <div
+        className={cn(`${styles.item} ${styles.templateWrapp}`, {
+          [styles.visible]: visible,
+        })}
+      >
         <div className={styles.template}>
           <span>тут дожен быть скриншот</span>
         </div>
@@ -33,7 +28,7 @@ const HomeFourthSection = memo(() => {
           img="/images/ui.png"
         />
       </div>
-    </section>
+    </Section>
   )
 })
 

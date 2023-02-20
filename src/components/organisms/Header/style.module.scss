@@ -2,16 +2,20 @@
 @import '../../../../styles/styles.scss';
 
 .header {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem 0;
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   background-color: transparent;
+
+  @media screen and (max-width: 1050px) {
+  }
 
   &.hidden {
     background-color: transparent;
@@ -41,11 +45,10 @@
 
     h1 {
       margin-left: 2rem;
-      font-size: 3rem;
-      font-weight: 700;
       line-height: normal;
 
       @extend %titleGragient;
+      @extend %h1;
     }
   }
 }

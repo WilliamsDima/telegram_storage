@@ -10,7 +10,7 @@ import Logo from '../../atoms/Logo'
 const Header = () => {
   const scrollDirection = useScrollDirection()
 
-  useEffect(() => {}, [])
+  useEffect(() => {}, [scrollDirection])
 
   return (
     <header

@@ -1,0 +1,140 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/styles.scss';
+
+.description {
+  // width: 30%;
+  margin-top: -30rem;
+  @extend %showAnimUp;
+  animation-delay: 0.5s;
+
+  @media screen and (max-width: 1050px) {
+    margin-top: -20rem;
+  }
+  .descriptionText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+    dfn {
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      @extend %h1;
+    }
+  }
+}
+
+.cloud {
+  opacity: 0.5;
+  // width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 10;
+
+  @extend %showAnimZoom;
+
+  animation-delay: 0.5s;
+}
+
+.cloudRight {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .imgBlock {
+    position: absolute;
+    z-index: 2;
+    opacity: 0.4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @extend %neonBorderAnim;
+    @extend %showAnimZoom;
+  }
+
+  .zip {
+    bottom: 26%;
+    right: 41%;
+    border-radius: 7px;
+    width: 27px;
+    padding-right: 1rem;
+
+    animation-delay: 2s;
+
+    @media screen and (max-width: 1050px) {
+      width: 18px;
+    }
+
+    img {
+      width: 50px;
+      height: auto;
+    }
+  }
+
+  .doc {
+    bottom: 29%;
+    right: 24%;
+    border-radius: 7px;
+    width: 38px;
+
+    animation-delay: 2.5s;
+
+    @media screen and (max-width: 1050px) {
+      width: 30px;
+    }
+
+    img {
+      width: 50px;
+      height: auto;
+    }
+  }
+
+  .telegram {
+    top: 50%;
+    left: 26%;
+    box-shadow: none;
+    border: none;
+
+    animation-delay: 1s;
+
+    img {
+      width: 70px;
+      height: auto;
+      transform: scaleX(-1);
+    }
+  }
+
+  .img {
+    bottom: 34%;
+    left: 40%;
+    border-radius: 10px;
+    animation-delay: 1.5s;
+
+    img {
+      width: 50px;
+      height: auto;
+    }
+  }
+
+  .folder {
+    top: 40%;
+    right: 15%;
+
+    box-shadow: none;
+    border: none;
+    animation-delay: 3s;
+  }
+
+  .imgBlock {
+    img {
+      @media screen and (max-width: 1050px) {
+        width: 40px;
+      }
+    }
+  }
+}

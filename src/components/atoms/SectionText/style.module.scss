@@ -17,16 +17,11 @@
   }
 
   h2 {
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-transform: uppercase;
-    color: $blue;
     position: relative;
     z-index: 2;
-    text-align: center;
 
     @extend %titleGragientBlueLeft;
+    @extend %sectionTitle;
   }
 
   p {
@@ -40,6 +35,9 @@
     position: absolute;
     z-index: 1;
     opacity: 0.03;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 200px;

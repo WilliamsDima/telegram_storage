@@ -1,0 +1,22 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/styles.scss';
+
+.item {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 40px;
+    width: 60%;
+
+    @media screen and (max-width: 1050px) {
+      font-size: 30px;
+    }
+  }
+}
