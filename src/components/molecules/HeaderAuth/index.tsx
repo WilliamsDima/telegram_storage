@@ -9,12 +9,15 @@ const HeaderAuth = memo(() => {
     <div className={styles.auth}>
       <Button
         overStyles={{
-          fontSize: 18,
           textTransform: 'uppercase',
           fontWeight: '700',
         }}
       >
-        <FcGoogle fontSize={20} style={{ marginRight: '1rem' }} />
+        <FcGoogle
+          className={styles.googleIcon}
+          fontSize={20}
+          style={{ marginRight: '1rem' }}
+        />
         войти
       </Button>
     </div>

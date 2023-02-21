@@ -36,6 +36,14 @@
     justify-content: center;
     align-items: flex-start;
 
+    @media screen and (max-width: 1050px) {
+      width: 70%;
+    }
+
+    @media screen and (max-width: 570px) {
+      width: 100%;
+    }
+
     .item {
       display: flex;
       justify-content: flex-start;
@@ -44,17 +52,23 @@
       margin-right: 3rem;
       margin-top: -0.7rem;
 
+      @media screen and (max-width: 570px) {
+        margin-right: 1rem;
+      }
+
       &.logo {
         img {
           width: 30px;
+
+          @media screen and (max-width: 570px) {
+            width: 20px;
+          }
         }
       }
       h3 {
-        font-size: 16px;
         @extend %titleGragient;
+        @extend %h3;
         margin-left: 1rem;
-        font-weight: 700;
-        line-height: normal;
       }
     }
   }

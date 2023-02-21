@@ -8,6 +8,62 @@
   @media screen and (max-width: 1050px) {
     font-size: 32px;
   }
+
+  @media screen and (max-width: 570px) {
+    font-size: 18px;
+  }
+}
+
+%h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 570px) {
+    font-size: 12px;
+  }
+}
+
+%h4 {
+  font-size: 16px;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 570px) {
+    font-size: 10px;
+  }
+}
+
+%p1 {
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.5;
+
+  @media screen and (max-width: 570px) {
+    font-size: 14px;
+  }
+}
+
+%nameFile {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $black;
+
+  @media screen and (max-width: 1050px) {
+    font-size: 11px;
+  }
+
+  @media screen and (max-width: 570px) {
+    font-size: 7px;
+  }
 }
 
 %sectionTitle {
@@ -19,6 +75,10 @@
   text-align: center;
   @media screen and (max-width: 1050px) {
     font-size: 40px;
+  }
+
+  @media screen and (max-width: 570px) {
+    font-size: 20px;
   }
 }
 

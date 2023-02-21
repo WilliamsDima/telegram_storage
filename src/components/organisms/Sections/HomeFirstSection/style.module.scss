@@ -10,14 +10,18 @@
   @media screen and (max-width: 1050px) {
     margin-top: -20rem;
   }
+
+  @media screen and (max-width: 570px) {
+    width: 70%;
+  }
   .descriptionText {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 20px;
-    text-align: center;
-    line-height: 1.5;
+
+    @extend %p1;
+
     dfn {
       text-transform: uppercase;
       margin-bottom: 2rem;
@@ -28,7 +32,7 @@
 
 .cloud {
   opacity: 0.5;
-  // width: 100%;
+  width: 100%;
   height: auto;
   position: relative;
   z-index: 10;
@@ -53,7 +57,6 @@
     justify-content: center;
     align-items: center;
 
-    @extend %neonBorderAnim;
     @extend %showAnimZoom;
   }
 
@@ -68,6 +71,11 @@
 
     @media screen and (max-width: 1050px) {
       width: 18px;
+    }
+
+    @media screen and (max-width: 570px) {
+      padding-right: 0.5rem;
+      right: 35%;
     }
 
     img {
@@ -86,6 +94,11 @@
 
     @media screen and (max-width: 1050px) {
       width: 30px;
+    }
+
+    @media screen and (max-width: 570px) {
+      right: 17%;
+      width: 24px;
     }
 
     img {
@@ -107,6 +120,10 @@
       height: auto;
       transform: scaleX(-1);
     }
+
+    @media screen and (max-width: 570px) {
+      left: 20%;
+    }
   }
 
   .img {
@@ -114,6 +131,10 @@
     left: 40%;
     border-radius: 10px;
     animation-delay: 1.5s;
+
+    @media screen and (max-width: 570px) {
+      left: 37%;
+    }
 
     img {
       width: 50px;
@@ -128,12 +149,20 @@
     box-shadow: none;
     border: none;
     animation-delay: 3s;
+
+    @media screen and (max-width: 570px) {
+      right: 16%;
+      top: 30%;
+    }
   }
 
   .imgBlock {
     img {
       @media screen and (max-width: 1050px) {
         width: 40px;
+      }
+      @media screen and (max-width: 570px) {
+        width: 25px;
       }
     }
   }

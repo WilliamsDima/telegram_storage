@@ -8,7 +8,7 @@ const HomeFourthSection = memo(() => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <Section setVisible={setVisible} overStyle={{ height: '50vh' }}>
+    <Section setVisible={setVisible}>
       <div
         className={cn(`${styles.item} ${styles.templateWrapp}`, {
           [styles.visible]: visible,
@@ -22,8 +22,8 @@ const HomeFourthSection = memo(() => {
       <div className={styles.item}>
         <SectionText
           title={'UI/UX'}
-          textStyle={{ width: '40%' }}
-          text={'Интуитивно понятный и удобный дизайн для использования.'}
+          text={`Интуитивно понятный и 
+          удобный дизайн для использования.`}
           visible={visible}
           img="/images/ui.png"
         />

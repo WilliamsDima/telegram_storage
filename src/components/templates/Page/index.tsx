@@ -15,7 +15,6 @@ const Page: FC<Page> = ({ children }) => {
       <Meta />
       <Header />
       <MyParticles />
-
       <main className={styles.main}>{children}</main>
     </div>
   )

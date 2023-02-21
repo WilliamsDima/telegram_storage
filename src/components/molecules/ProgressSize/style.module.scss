@@ -18,7 +18,7 @@
   flex-direction: column;
 
   @media screen and (max-width: 1050px) {
-    width: 60%;
+    width: 40%;
   }
 
   .infinity {
@@ -38,6 +38,11 @@
 
     p {
       margin-right: 1rem;
+      @extend %p1;
+
+      @media screen and (max-width: 570px) {
+        font-size: 11px;
+      }
     }
   }
 

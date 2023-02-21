@@ -8,6 +8,10 @@
   flex-direction: column;
   margin-right: 3rem;
 
+  @media screen and (max-width: 570px) {
+    margin-right: 1rem;
+  }
+
   .list {
     margin-top: 2rem;
     .item {
@@ -18,6 +22,10 @@
       margin-bottom: 1rem;
       font-size: 12px;
 
+      @media screen and (max-width: 570px) {
+        font-size: 9px;
+      }
+
       &:last-child {
         margin: 0;
       }
@@ -26,6 +34,10 @@
         width: 20px;
         height: auto;
         margin-right: 1rem;
+
+        @media screen and (max-width: 570px) {
+          width: 15px;
+        }
       }
     }
   }
@@ -41,7 +53,7 @@
   }
 
   h4 {
-    font-size: 16px;
+    @extend %h4;
   }
 
   h3 {

@@ -5,6 +5,13 @@
   position: relative;
   opacity: 0;
 
+  @media screen and (max-width: 1050px) {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &.visible {
     opacity: 1;
     @extend %showAnimZoom;
@@ -14,5 +21,13 @@
     bottom: -30%;
     right: -90%;
     z-index: -1;
+
+    @media screen and (max-width: 1050px) {
+      right: 0%;
+    }
+
+    @media screen and (max-width: 570px) {
+      right: -8%;
+    }
   }
 }

@@ -22,8 +22,7 @@ const Folder: FC<TFolder> = memo(
           className={styles.folder}
           style={{ ...overStyles, backgroundColor: colorFolder }}
         >
-          <div className={styles.one}></div>
-          <div className={styles.two}></div>
+          <div className={styles.bodyFolder}></div>
         </div>
         {!!name && <p>{folderName}</p>}
       </div>

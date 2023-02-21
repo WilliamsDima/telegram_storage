@@ -9,7 +9,7 @@ const HomeSecondSection = memo(() => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <Section setVisible={setVisible} overStyle={{ height: '50vh' }}>
+    <Section setVisible={setVisible}>
       <div className={styles.item}>
         <HomeFolders visible={visible} />
       </div>

@@ -9,14 +9,10 @@
 
   @media screen and (max-width: 1050px) {
     font-size: 30px;
-  }
+    width: auto;
 
-  h2 {
-    font-size: 40px;
-    width: 60%;
-
-    @media screen and (max-width: 1050px) {
-      font-size: 30px;
+    &:first-child {
+      margin-top: 5rem;
     }
   }
 }

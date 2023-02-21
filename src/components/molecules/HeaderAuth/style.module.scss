@@ -2,4 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .googleIcon {
+    @media screen and (max-width: 570px) {
+      font-size: 11px;
+    }
+  }
 }

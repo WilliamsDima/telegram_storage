@@ -8,16 +8,18 @@ const HomeThridSection = memo(() => {
   const [visible, setVisible] = useState(false)
 
   return (
-    <Section setVisible={setVisible} overStyle={{ height: '50vh' }}>
+    <Section setVisible={setVisible}>
       <div className={styles.item}>
         <PhotoCollages visible={visible} />
       </div>
 
       <div className={styles.item}>
         <SectionText
-          title={`сохраняйте сколько угодно фото и видео`}
-          textStyle={{ width: '40%' }}
-          text={`В жизни так много котиков и пёсиков, которых хочется запомнить.`}
+          title={`сохраняйте сколько
+          
+          угодно фото и видео`}
+          text={`В жизни так много котиков и пёсиков, 
+          которых хочется запомнить.`}
           visible={visible}
           img={'/images/img.png'}
         />

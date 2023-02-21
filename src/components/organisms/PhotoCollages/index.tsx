@@ -23,9 +23,33 @@ import dog6 from '../../../assets/images/animals/dog6.jpg'
 import dog7 from '../../../assets/images/animals/dog7.jpg'
 import dog8 from '../../../assets/images/animals/dog8.jpeg'
 
-const cats = [cat1, cat2, dog1, cat4, cat5, dog3, cat7, cat8, dog4]
+// const cats = [cat1, cat2, dog1, cat4, cat5, dog3, cat7, cat8, dog4]
 
-const gogs = [cat3, cat6, dog5, cat9, dog6, cat10, dog7, cat11, dog8]
+// const gogs = [cat3, cat6, dog5, cat9, dog6, cat10, dog7, cat11, dog8]
+
+const cats = [
+  '/images/animals/cat1.jpg',
+  '/images/animals/cat2.jpg',
+  '/images/animals/dog1.jpg',
+  '/images/animals/cat4.jpg',
+  '/images/animals/cat5.jpg',
+  '/images/animals/dog3.jpg',
+  '/images/animals/cat7.jpg',
+  '/images/animals/cat8.jpg',
+  '/images/animals/dog4.jpg',
+]
+
+const gogs = [
+  '/images/animals/cat3.jpg',
+  '/images/animals/cat6.jpg',
+  '/images/animals/dog5.jpg',
+  '/images/animals/cat9.jpg',
+  '/images/animals/dog6.jpg',
+  '/images/animals/cat10.jpg',
+  '/images/animals/dog7.jpg',
+  '/images/animals/cat11.jpg',
+  '/images/animals/dog8.jpeg',
+]
 
 type Collages = {
   visible: boolean
