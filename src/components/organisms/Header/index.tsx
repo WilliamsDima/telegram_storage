@@ -6,18 +6,21 @@ import cn from 'classnames'
 import { useScrollDirection } from '../../../hooks/useScrollDirection'
 import HeaderAuth from '../../molecules/HeaderAuth'
 import Logo from '../../atoms/Logo'
+import { useAuth } from '../../../hooks/useAuth'
 
 const Header = () => {
   const scrollDirection = useScrollDirection()
+  const { user } = useAuth()
 
   useEffect(() => {}, [scrollDirection])
 
   return (
     <header
       className={cn(styles.header, {
-        [styles.hidden]: scrollDirection === 'down',
-        [styles.show]: scrollDirection === 'up',
-        [styles.clear]: scrollDirection === 'clear',
+        [styles.hidden]: scrollDirection === 'down' && !user,
+        [styles.show]: scrollDirection === 'up' && !user,
+        [styles.clear]: scrollDirection === 'clear' && !user,
+        [styles.disk]: user,
       })}
     >
       <div className={styles.headerContent}>

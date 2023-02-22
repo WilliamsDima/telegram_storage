@@ -1,12 +1,14 @@
 import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import { storeWrapper } from '../src/stores'
-import Meta from '../src/components/atoms/Meta'
+import { AuthProvider } from '../src/hooks/useAuth'
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Component {...pageProps} />
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </>
   )
 }

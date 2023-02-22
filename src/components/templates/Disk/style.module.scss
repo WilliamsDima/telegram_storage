@@ -1,0 +1,12 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/typography.scss';
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: $bgDisk;
+  border-radius: 5px;
+
+  // @extend %showAnimZoomMin;
+}

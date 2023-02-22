@@ -1,118 +1,58 @@
 @import './colors.scss';
 
-%h1 {
-  color: $blue;
-  font-size: 44px;
-  font-weight: 700;
-
-  @media screen and (max-width: 1050px) {
-    font-size: 32px;
-  }
-
-  @media screen and (max-width: 570px) {
-    font-size: 18px;
-  }
-}
-
-%h3 {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-
-  @media screen and (max-width: 1050px) {
-    font-size: 14px;
-  }
-
-  @media screen and (max-width: 570px) {
-    font-size: 12px;
+%borderGradientAnim {
+  padding: 1px;
+  background: linear-gradient(to right, red, purple);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
-%h4 {
-  font-size: 16px;
+%animBgGradient {
+  background: linear-gradient(-45deg, #5985b0, #2b5278, #17212b, #1e1e1e);
 
-  @media screen and (max-width: 1050px) {
-    font-size: 12px;
-  }
-
-  @media screen and (max-width: 570px) {
-    font-size: 10px;
-  }
-}
-
-%p1 {
-  font-size: 18px;
-  text-align: center;
-  line-height: 1.5;
-
-  @media screen and (max-width: 570px) {
-    font-size: 14px;
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
-%nameFile {
-  margin-top: 0.5rem;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.4;
-  color: $black;
+%showAnimPopup {
+  animation-name: showPopup;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  transform: translateY(20px);
 
-  @media screen and (max-width: 1050px) {
-    font-size: 11px;
+  @keyframes showPopup {
+    0% {
+      transform: translateY(20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
-
-  @media screen and (max-width: 570px) {
-    font-size: 7px;
-  }
-}
-
-%sectionTitle {
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: $blue;
-  text-align: center;
-  @media screen and (max-width: 1050px) {
-    font-size: 40px;
-  }
-
-  @media screen and (max-width: 570px) {
-    font-size: 20px;
-  }
-}
-
-%titleGragient {
-  background: rgb(252, 212, 98);
-  background: linear-gradient(
-    90deg,
-    rgba(252, 212, 98, 1) 50%,
-    rgba(236, 240, 243, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-%titleGragientBlue {
-  background: rgb(94, 181, 247);
-  background: linear-gradient(
-    90deg,
-    rgba(94, 181, 247, 1) 50%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-%titleGragientBlueLeft {
-  background: rgb(94, 181, 247);
-  background: linear-gradient(
-    270deg,
-    rgba(94, 181, 247, 1) 50%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 %neonBorderAnim {
@@ -148,6 +88,27 @@
     }
     50% {
       transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+%showAnimZoomMin {
+  animation-name: showBlock;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transform: scale(0);
+
+  @keyframes showBlock {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(0.5);
     }
     100% {
       transform: scale(1);

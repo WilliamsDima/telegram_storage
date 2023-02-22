@@ -1,0 +1,81 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+@import '../../../../styles/styles.scss';
+
+.popupContent {
+  background-color: rgba($white, $alpha: 1);
+  border-radius: 5px;
+  width: 330px;
+  overflow: hidden;
+  box-shadow: 0px 0px 28px 4px rgba(96, 96, 96, 0.24);
+
+  .userInfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid $gray;
+
+    .name {
+      @extend %h3;
+      font-weight: 600;
+      color: $black;
+      margin-left: 1rem;
+    }
+  }
+
+  .item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 0;
+    svg {
+      color: $black;
+      transform: rotate(0deg);
+      transition: all 0.2s linear;
+    }
+    button {
+      @extend %p2;
+      line-height: 0;
+      color: $black;
+
+      &:hover {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        @extend %p2;
+        line-height: 0;
+        color: $black;
+      }
+
+      svg {
+        color: $black;
+      }
+
+      &:last-child {
+        svg {
+          color: $red;
+        }
+        button {
+          color: $red;
+        }
+      }
+    }
+  }
+}

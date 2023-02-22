@@ -6,6 +6,7 @@ import {
   signOut,
 } from 'firebase/auth'
 import { doc, setDoc, DocumentData, updateDoc } from 'firebase/firestore/lite'
+import { useRouter } from 'next/router'
 import React, {
   FC,
   useState,
@@ -15,7 +16,6 @@ import React, {
   useEffect,
   ReactElement,
 } from 'react'
-import { deleteUserAPI } from 'src/api/firebase/firebase'
 import {
   auth,
   db,
@@ -27,7 +27,6 @@ import {
   recovery,
   register,
 } from '../config/firebase'
-import { useActions } from './useActions'
 
 type IContext = {
   user: FirebaseUser | null
@@ -44,30 +43,21 @@ type AuthProviderType = {
 
 export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
   const [user, setUser] = useState<FirebaseUser | null>(auth?.currentUser)
+  const router = useRouter()
 
   const [isLoadingInitial, setIsLoadingInitial] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const { setUserAC } = useActions()
 
   const createUser = async (user: FirebaseUser) => {
-    const id = user.providerData[0].uid
-
-    // const isUser = await getDataUser(user)
-
-    // if (!!isUser) {
-    //   await updateDoc(doc(db, 'users', id), {
-    //     id,
-    //     name: user.displayName,
-    //     email: user.email,
-    //   })
-    // } else {
-    //   await setDoc(doc(db, 'users', id), {
-    //     id,
-    //     name: user.displayName,
-    //     email: user.email,
-    //     codes: [],
-    //   })
-    // }
+    const userData = {
+      id: user.uid,
+      dateCreate: +new Date(),
+    }
+    try {
+      await setDoc(doc(db, 'users', user.uid), userData)
+    } catch (error) {
+      console.log('createUser error', error)
+    }
   }
 
   const signIn = async () => {
@@ -76,7 +66,9 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
       const res = await signInWithPopup(auth, provider)
       const userData = res.user
 
-      createUser(userData)
+      const isUser = await getUserData(userData.uid)
+
+      !isUser && createUser(userData)
       setUser(userData)
     } catch (error) {
       console.error('signIn error', error)
@@ -90,6 +82,7 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
     try {
       await signOut(auth)
       setUser(null)
+      router.push('/')
     } catch (error) {
       console.log('logout error', error)
     } finally {
