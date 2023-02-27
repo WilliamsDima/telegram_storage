@@ -1,6 +1,6 @@
 import { bindActionCreators } from '@reduxjs/toolkit'
 import { useMemo } from 'react'
-import { mainActionsSlice } from 'src/stores/redusers/main/main'
+import { mainActionsSlice } from '../stores/redusers/main/main'
 import { useAppDispatch } from './hooks'
 
 const allActions = {

@@ -4,6 +4,7 @@ import { IStore } from './types'
 
 const initialState: IStore = {
   user: null,
+  filter: 'main',
 }
 
 const mainSlice = createSlice({
