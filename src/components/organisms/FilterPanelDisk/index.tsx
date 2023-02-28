@@ -20,19 +20,7 @@ const FilterPanelDisk: FC<TFilter> = memo(({}) => {
   return (
     <ul className={styles.filter}>
       {filterData.map((item) => {
-        return (
-          <li
-            key={item.id}
-            className={cn(styles.item, {
-              [styles.active]: filter === item.value,
-            })}
-          >
-            <Button onClick={() => selectFilterHandler(item.value)}>
-              {item.icons()}
-              {item.text}
-            </Button>
-          </li>
-        )
+        return <li></li>
       })}
     </ul>
   )

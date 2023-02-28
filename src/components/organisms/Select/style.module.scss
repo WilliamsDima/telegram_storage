@@ -1,0 +1,91 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+@import '../../../../styles/styles.scss';
+
+.select {
+  position: relative;
+  background-color: $white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @extend %shadow;
+  color: $black;
+  cursor: pointer;
+
+  .iconArrow {
+    transition: all 0.2s linear;
+    transform: rotate(0);
+  }
+
+  &.hiddenText {
+    p {
+      display: none;
+    }
+  }
+
+  &.open {
+    .iconArrow {
+      transform: rotate(-180deg);
+    }
+
+    .menu {
+      opacity: 1;
+      visibility: visible;
+      @extend %showAnimPopup;
+    }
+  }
+
+  .selectContent {
+    @extend %p2;
+  }
+
+  .menu {
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    width: max-content;
+    min-width: 100%;
+    visibility: hidden;
+    transition: all 0.2s linear;
+    background-color: $white;
+    border-radius: 5px;
+    padding: 1rem 0;
+
+    .title {
+      text-align: start;
+      padding: 1rem;
+      margin: 0;
+      opacity: 0.5;
+    }
+
+    p {
+      display: block;
+      @extend %nameFile;
+      line-height: 1;
+      margin: 0;
+      margin-left: 0.5rem;
+    }
+
+    li {
+      width: 100%;
+      padding: 0.5rem;
+      transition: all 0.2s linear;
+
+      .btn {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: rgba($black, 0.2);
+      }
+    }
+  }
+}

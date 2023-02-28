@@ -1,0 +1,19 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+@import '../../../../styles/styles.scss';
+
+.contextMenu {
+  position: fixed;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  background: #673ab7;
+  opacity: 0;
+  visibility: hidden;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    @extend %showAnimPopup;
+  }
+}

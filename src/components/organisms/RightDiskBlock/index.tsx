@@ -4,6 +4,7 @@ import { BiArrowToLeft } from 'react-icons/bi'
 import cn from 'classnames'
 import DiskContent from '../DiskContent'
 import { useOutside } from '../../../hooks/useOutside'
+import ContextMenu from '../ContextMenu'
 
 type TRight = {
   setHidePanel: (value: boolean) => void
@@ -30,18 +31,12 @@ const RightDiskBlock: FC<TRight> = memo(({ setHidePanel, hidePanel }) => {
       })}
       onContextMenu={handleClick}
     >
-      <div
+      <ContextMenu
         ref={ref}
-        style={{ top: xYPosistion.y, left: xYPosistion.x }}
-        className={cn(styles.contextContainer, {
-          [styles.open]: isShow,
-        })}
-      >
-        <div className="menuElement">Refactor</div>
-        <div className="menuElement">Cut</div>
-        <div className="menuElement">Copy</div>
-        <div className="menuElement">Paste</div>
-      </div>
+        open={isShow}
+        setIsShow={setIsShow}
+        position={{ top: xYPosistion.y, left: xYPosistion.x }}
+      />
 
       <button
         className={styles.btnHidePanel}
