@@ -1,8 +1,6 @@
-import { useRouter } from 'next/router'
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import { useAuth } from '../../../hooks/useAuth'
 import Button from '../../atoms/Button'
-import Footer from '../../organisms/Footer'
 import HomeFirstSection from '../../organisms/Sections/HomeFirstSection'
 import HomeFourthSection from '../../organisms/Sections/HomeFourthSection'
 import HomeSecondSection from '../../organisms/Sections/HomeSecondSection'
@@ -12,13 +10,7 @@ import styles from './style.module.scss'
 type Page = {}
 
 const HomeTemplate: FC<Page> = ({}) => {
-  const router = useRouter()
-
-  const { isLoading, user, signIn } = useAuth()
-
-  useEffect(() => {
-    if (!isLoading && user) router.push('/disk')
-  }, [user, isLoading])
+  const { signIn } = useAuth()
 
   return (
     <div className={styles.container}>

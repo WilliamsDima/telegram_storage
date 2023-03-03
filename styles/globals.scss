@@ -18,6 +18,11 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
+  &.modal {
+    height: 100vh;
+    overflow: hidden;
+  }
+
   &::-webkit-scrollbar {
     width: 3px;
     border-radius: 5px;

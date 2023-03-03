@@ -4,106 +4,80 @@
 
 .folderWrapper {
   cursor: pointer;
-  width: 80px;
+  width: 150px;
   // height: 80px;
   position: relative;
   display: flex;
   justify-items: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 0.5rem;
 
   @media screen and (max-width: 1050px) {
-    width: 60px;
+    width: 100px;
   }
 
   @media screen and (max-width: 570px) {
-    width: 40px;
+    width: 60px;
   }
 
   p {
     @extend %nameFile;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
   }
 
   .folder {
     position: relative;
-    width: 60px;
-    height: 40px;
+    width: 150px;
+    height: 150px;
+    color: $blue;
+    overflow: hidden;
 
     @media screen and (max-width: 1050px) {
-      width: 40px;
+      width: 100px;
+      height: 100px;
     }
 
     @media screen and (max-width: 570px) {
-      width: 30px;
-      height: 25px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .folderIcon {
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    &:after {
+      position: absolute;
+      z-index: 1;
+      right: 1.5rem;
+      top: 40%;
+      content: '';
+      width: calc(50%);
+      height: 30%;
+      transform: translateY(0);
+      background-color: $white;
+      border-radius: 5px;
+      transition: all 0.2s linear;
+
+      @media screen and (max-width: 1050px) {
+        right: 1.7rem;
+      }
+
+      @media screen and (max-width: 570px) {
+        right: 1.8rem;
+      }
     }
   }
 
   &:hover {
-    .bodyFolder::after {
-      transform: translateY(0);
-    }
-  }
-
-  .bodyFolder {
-    width: 100%;
-    height: 40px;
-    margin-top: 3px;
-    position: absolute;
-    background-color: $blue;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-top-left-radius: 8px;
-    border-top: none;
-
-    @media screen and (max-width: 1050px) {
-      height: 30px;
-    }
-
-    @media screen and (max-width: 570px) {
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-      border-top-left-radius: 4px;
-      height: 20px;
-    }
-
-    &::before {
-      position: absolute;
-      top: -3px;
-      right: 0px;
-      width: 35%;
-      content: '';
-      height: 4px;
-      float: right;
-      background-color: #5eb5f7;
-      border-bottom: 0px solid #5eb5f7;
-      border-left: 4px solid #5eb5f7;
-      border-top-right-radius: 8px;
-      clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
-
-      @media screen and (max-width: 570px) {
-        border-top-right-radius: 4px;
-      }
-    }
-
-    &::after {
-      position: absolute;
-      top: -2px;
-      left: 0px;
-      border-radius: 5px;
-      content: '';
-      z-index: -1;
-      display: block;
-      width: 100%;
-      height: 20px;
-      background-color: #ffffff;
-      transform: translateY(50%);
-      transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-      @media screen and (max-width: 570px) {
-        height: 10px;
-      }
+    .folder::after {
+      transform: translateY(-50%);
     }
   }
 }

@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { useRouter } from 'next/router'
 import React, { FC, useEffect } from 'react'
 import { useAuth } from '../../../hooks/useAuth'
 import Loader from '../../atoms/Loader'
@@ -14,23 +15,30 @@ type Page = {
 
 const Page: FC<Page> = ({ children }) => {
   const { isLoading, user } = useAuth()
+  const router = useRouter()
 
-  useEffect(() => {}, [isLoading])
+  useEffect(() => {
+    if (!user) router.push('/')
+  }, [user])
 
   return (
     <div className={styles.container}>
-      <Meta />
-      <Header />
-      <MyParticles />
       <Loader active={isLoading} />
-      <main
-        className={cn(styles.main, {
-          [styles.disk]: user,
-        })}
-      >
-        {children}
-      </main>
-      <Footer />
+      <Meta />
+      {!isLoading && (
+        <>
+          <Header />
+          <MyParticles />
+          <main
+            className={cn(styles.main, {
+              [styles.disk]: user,
+            })}
+          >
+            {children}
+          </main>
+          <Footer />
+        </>
+      )}
     </div>
   )
 }

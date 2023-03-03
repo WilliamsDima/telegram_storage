@@ -73,6 +73,25 @@
   }
 }
 
+%bgColorShow {
+  animation-name: bgColorShow;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  background-color: rgba(31, 41, 54, 0);
+
+  @keyframes bgColorShow {
+    0% {
+      background-color: rgba(31, 41, 54, 0);
+    }
+    100% {
+      background-color: rgba(31, 41, 54, 0.8);
+    }
+  }
+}
+
 %showAnimZoom {
   animation-name: showBlock;
   animation-duration: 0.5s;

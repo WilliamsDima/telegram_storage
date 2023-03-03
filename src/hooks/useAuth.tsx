@@ -44,9 +44,7 @@ type AuthProviderType = {
 export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
   const [user, setUser] = useState<FirebaseUser | null>(auth?.currentUser)
   const router = useRouter()
-
-  const [isLoadingInitial, setIsLoadingInitial] = useState<boolean>(false)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const createUser = async (user: FirebaseUser) => {
     const userData = {
@@ -95,8 +93,6 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
       setIsLoading(true)
       if (user) {
         setUser(user)
-        // getUser(user.uid)
-        setIsLoadingInitial(false)
         setIsLoading(false)
       } else {
         setUser(null)
@@ -116,11 +112,7 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
     }
   }, [user, isLoading])
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!isLoadingInitial && children}
-    </AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
 export const useAuth = () => {

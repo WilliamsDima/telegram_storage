@@ -6,12 +6,14 @@ import { MdOutlineCloudDownload, MdAdd } from 'react-icons/md'
 
 import FilterPanelDisk from '../FilterPanelDisk'
 import BottomLeftPanel from '../../atoms/BottomLeftPanel'
+import { useDisk } from '../../../context/diskContext'
 
 type TLeft = {
   hidePanel: boolean
 }
 
 const LeftDiskBlock: FC<TLeft> = memo(({ hidePanel }) => {
+  const { setIsShowModalCreater } = useDisk()
   return (
     <div
       className={cn(styles.leftPanel, {
@@ -28,7 +30,7 @@ const LeftDiskBlock: FC<TLeft> = memo(({ hidePanel }) => {
             />
             Загрузить
           </Button>
-          <Button>
+          <Button onClick={() => setIsShowModalCreater(true)}>
             <MdAdd
               className={styles.icon}
               fontSize={20}
