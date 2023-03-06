@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import styles from './style.module.scss'
 import Image from 'next/image'
-import Folder from '../../../atoms/Folder'
+import { HiFolder } from 'react-icons/hi'
 import Section from '../Section'
 
 const HomeFirstSection = memo(() => {
@@ -46,7 +46,7 @@ const HomeFirstSection = memo(() => {
         </div>
 
         <div className={`${styles.folder} ${styles.imgBlock}`}>
-          <Folder neon={true} />
+          <HiFolder className={styles.folderIcon} />
         </div>
       </div>
     </Section>

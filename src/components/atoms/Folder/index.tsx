@@ -4,7 +4,6 @@ import cn from 'classnames'
 import { IFolder } from '../../../stores/redusers/main/types'
 import { cutText } from '../../../utils/helpers'
 import { HiFolder } from 'react-icons/hi'
-import { useDisk } from '../../../context/diskContext'
 import { useActions } from '../../../hooks/useActions'
 
 type TFolder = {
@@ -18,10 +17,10 @@ type TFolder = {
 const Folder: FC<TFolder> = memo(
   ({ overStyles, colorFolder, neon = false, name, folder }) => {
     const folderName = name ? cutText(name) : cutText(folder?.name)
-    const { setFolders } = useActions()
+    const { selectFolder } = useActions()
 
     const openFolderHandler = () => {
-      folder && setFolders(folder.folders)
+      folder && selectFolder(folder)
     }
 
     return (

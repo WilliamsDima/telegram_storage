@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import {
   useContext,
   createContext,
@@ -5,7 +6,10 @@ import {
   FC,
   ReactElement,
   RefObject,
+  useEffect,
 } from 'react'
+import Loader from '../components/atoms/Loader'
+import { useAuth } from '../hooks/useAuth'
 import { useOutside } from '../hooks/useOutside'
 
 type IContext = {
@@ -27,6 +31,9 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
     setIsShow: setIsShowModalCreater,
   } = useOutside(false)
 
+  const { user } = useAuth()
+  const router = useRouter()
+
   const value = useMemo(() => {
     return {
       refModalCreater,
@@ -34,6 +41,10 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
       setIsShowModalCreater,
     }
   }, [refModalCreater, showModalCreater])
+
+  useEffect(() => {
+    if (!user) router.push('/')
+  }, [user])
 
   return <DiskContext.Provider value={value}>{children}</DiskContext.Provider>
 }

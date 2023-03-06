@@ -6,6 +6,10 @@ type MainActions = {
   setFilterDisk: (state: IStore, payload: PayloadAction<string>) => void
   addFolder: (state: IStore, payload: PayloadAction<IFolder>) => void
   setFolders: (state: IStore, payload: PayloadAction<IFolder[]>) => void
+  selectFolder: (
+    state: IStore,
+    payload: PayloadAction<IFolder | number>
+  ) => void
 }
 
 export const mainActions: MainActions = {
@@ -20,5 +24,12 @@ export const mainActions: MainActions = {
   },
   setFolders: (state, { payload }) => {
     state.folders = payload || []
+  },
+  selectFolder: (state, { payload }) => {
+    if (typeof payload === 'object') {
+      state.folderSelect.push(payload)
+    } else {
+      state.folderSelect = state.folderSelect.slice(0, payload)
+    }
   },
 }

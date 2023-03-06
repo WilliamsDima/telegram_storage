@@ -280,6 +280,7 @@ a {
   vertical-align: baseline; /* 3 */
   *vertical-align: middle; /* 3 */
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
 }
 
 /**

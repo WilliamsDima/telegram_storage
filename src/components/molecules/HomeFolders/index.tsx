@@ -3,6 +3,7 @@ import Folder from '../../atoms/Folder'
 import IconFile from '../../atoms/IconFile'
 import ProgressSize from '../ProgressSize'
 import styles from './style.module.scss'
+import { HiFolder } from 'react-icons/hi'
 import cn from 'classnames'
 
 const dataFolders = [
@@ -78,7 +79,10 @@ const HomeFolders: FC<THomeFolders> = memo(({ visible }) => {
             key={item.id}
             style={{ animationDelay: item.delay }}
           >
-            <Folder name={item.name} />{' '}
+            <div className={styles.folder}>
+              <HiFolder className={styles.folderIcon} />
+              <p className={styles.folderName}>{item.name}</p>
+            </div>
           </div>
         )
       })}

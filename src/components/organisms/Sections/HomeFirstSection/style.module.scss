@@ -151,6 +151,19 @@
     border: none;
     animation-delay: 3s;
 
+    .folderIcon {
+      color: $blue;
+      width: 70px;
+      height: auto;
+
+      @media screen and (max-width: 1050px) {
+        width: 40px;
+      }
+      @media screen and (max-width: 570px) {
+        width: 30px;
+      }
+    }
+
     @media screen and (max-width: 570px) {
       right: 16%;
       top: 30%;
@@ -158,7 +171,8 @@
   }
 
   .imgBlock {
-    img {
+    img,
+    svg {
       @media screen and (max-width: 1050px) {
         width: 40px;
       }

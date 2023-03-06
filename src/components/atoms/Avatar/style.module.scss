@@ -11,8 +11,13 @@
 
   @extend %borderGradientAnim;
 
+  @media screen and (max-width: 570px) {
+    width: 30px;
+    height: 30px;
+  }
+
   img {
-    width: 50px;
+    width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 50%;
