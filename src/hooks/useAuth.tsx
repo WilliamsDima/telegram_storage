@@ -27,6 +27,7 @@ import {
   recovery,
   register,
 } from '../config/firebase'
+import { DISK_PATH } from '../services/constans'
 
 type IContext = {
   user: FirebaseUser | null
@@ -99,6 +100,10 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
         setIsLoading(false)
       }
     })
+
+    if (router.pathname === DISK_PATH && !user) {
+      router.push('/')
+    }
 
     return unsub
   }, [])
