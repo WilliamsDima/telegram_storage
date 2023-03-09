@@ -3,7 +3,6 @@
 @import '../../../../styles/typography.scss';
 
 .folderWrapper {
-  cursor: pointer;
   width: 150px;
   // height: 80px;
   position: relative;
@@ -11,6 +10,11 @@
   justify-items: center;
   flex-direction: column;
   align-items: center;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $gray;
+  }
 
   @media screen and (max-width: 1050px) {
     width: 100px;

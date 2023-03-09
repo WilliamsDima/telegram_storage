@@ -2,18 +2,33 @@
 @import '../../../../styles/styles.scss';
 @import '../../../../styles/typography.scss';
 
-.input {
-  width: 100%;
-  box-sizing: border-box;
-  border: 2px solid $gold;
-  outline: none !important;
-  transition: all 0.2s linear;
-  border-radius: 5px;
-  padding: 0.2rem 1rem;
-  @extend %p2;
-  text-align: start;
+.inputWrapp {
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: attr(data-error);
+    @extend %nameFile;
+    color: $red;
+  }
+  .input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid $gold;
+    outline: none !important;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    padding: 0.2rem 1rem;
+    @extend %p2;
+    text-align: start;
 
-  &:focus {
-    border-color: $blue;
+    &.error {
+      border-color: $red;
+    }
+
+    &:focus {
+      border-color: $blue;
+    }
   }
 }

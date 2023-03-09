@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import {
   useContext,
   createContext,
@@ -6,16 +5,29 @@ import {
   FC,
   ReactElement,
   RefObject,
-  useEffect,
+  MouseEvent,
+  useState,
 } from 'react'
-import Loader from '../components/atoms/Loader'
-import { useAuth } from '../hooks/useAuth'
 import { useOutside } from '../hooks/useOutside'
+import { IFolder } from '../stores/redusers/main/types'
 
 type IContext = {
   showModalCreater: boolean
+  showContextMenu: boolean
   refModalCreater: RefObject<HTMLDivElement>
+  refContextMenu: RefObject<HTMLDivElement>
   setIsShowModalCreater: (value: boolean) => void
+  setIsShowContextMenu: (value: boolean) => void
+  isFolderContext: IFolder | null
+  setIsFolderContext: (value: IFolder | null) => void
+  handleClickContextMenu: (
+    e: MouseEvent<HTMLDivElement>,
+    folder?: IFolder | null
+  ) => void
+  xYPosistion: {
+    x: number
+    y: number
+  }
 }
 
 const DiskContext = createContext<IContext>({} as IContext)
@@ -31,20 +43,51 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
     setIsShow: setIsShowModalCreater,
   } = useOutside(false)
 
-  const { user } = useAuth()
-  const router = useRouter()
+  const [isFolderContext, setIsFolderContext] = useState(null)
+
+  const {
+    isShow: showContextMenu,
+    ref: refContextMenu,
+    setIsShow: setIsShowContextMenu,
+  } = useOutside(false, () => setIsFolderContext(null))
+
+  const [xYPosistion, setXyPosistion] = useState({ x: 0, y: 0 })
+
+  const handleClickContextMenu = (
+    e: MouseEvent<HTMLDivElement>,
+    folder?: IFolder | null
+  ) => {
+    e.preventDefault()
+    const positionChange = {
+      x: e.pageX,
+      y: e.pageY,
+    }
+    setXyPosistion(positionChange)
+    setIsShowContextMenu(true)
+    folder && setIsFolderContext(folder)
+  }
 
   const value = useMemo(() => {
     return {
       refModalCreater,
       showModalCreater,
       setIsShowModalCreater,
+      isFolderContext,
+      setIsFolderContext,
+      showContextMenu,
+      refContextMenu,
+      setIsShowContextMenu,
+      handleClickContextMenu,
+      xYPosistion,
     }
-  }, [refModalCreater, showModalCreater])
-
-  useEffect(() => {
-    if (!user) router.push('/')
-  }, [user])
+  }, [
+    refModalCreater,
+    showModalCreater,
+    isFolderContext,
+    showContextMenu,
+    refContextMenu,
+    xYPosistion,
+  ])
 
   return <DiskContext.Provider value={value}>{children}</DiskContext.Provider>
 }

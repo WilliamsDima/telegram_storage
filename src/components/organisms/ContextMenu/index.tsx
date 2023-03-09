@@ -1,10 +1,9 @@
-import React, { memo, FC, forwardRef, RefObject } from 'react'
+import React, { memo, forwardRef, useEffect } from 'react'
 import styles from './style.module.scss'
 import cn from 'classnames'
-import Button from '../../atoms/Button'
-import { AiFillFolderAdd } from 'react-icons/ai'
-import { MdOutlineCloudDownload } from 'react-icons/md'
 import { useDisk } from '../../../context/diskContext'
+import DiskMenu from '../../molecules/DiskMenu'
+import FolderMenu from '../../molecules/FolderMenu'
 
 type TContextMenu = {
   open: boolean
@@ -17,16 +16,16 @@ type TContextMenu = {
 
 const ContextMenu = forwardRef<HTMLDivElement, TContextMenu>((props, ref) => {
   const { open, setIsShow, position } = props
-  const { setIsShowModalCreater } = useDisk()
+  const { isFolderContext, setIsFolderContext } = useDisk()
 
-  const handlerCreate = () => {
-    setIsShowModalCreater(true)
+  const closeHandler = () => {
+    setIsFolderContext(null)
     setIsShow(false)
   }
 
-  const handlerItem = () => {
-    setIsShow(false)
-  }
+  // useEffect(() => {
+  //   console.log(isFolderContext)
+  // }, [isFolderContext])
   return (
     <div
       style={position}
@@ -36,21 +35,11 @@ const ContextMenu = forwardRef<HTMLDivElement, TContextMenu>((props, ref) => {
       ref={ref}
     >
       <ul className={styles.menu}>
-        <li className={styles.item}>
-          <Button shadowClick={false} onClick={handlerCreate}>
-            <AiFillFolderAdd className={styles.iconFolder} fontSize={24} />
-            Новая папка
-          </Button>
-        </li>
-        <li className={styles.item}>
-          <Button shadowClick={false} onClick={handlerItem}>
-            <MdOutlineCloudDownload
-              className={styles.iconFolder}
-              fontSize={24}
-            />
-            Загрузить файл
-          </Button>
-        </li>
+        {!!isFolderContext ? (
+          <FolderMenu closeHandler={closeHandler} />
+        ) : (
+          <DiskMenu closeHandler={closeHandler} />
+        )}
       </ul>
     </div>
   )

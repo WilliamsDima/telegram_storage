@@ -1,10 +1,10 @@
-import React, { memo, FC, MouseEvent, useState } from 'react'
+import React, { memo, FC } from 'react'
 import styles from './style.module.scss'
 import { BiArrowToLeft } from 'react-icons/bi'
 import cn from 'classnames'
 import DiskContent from '../DiskContent'
-import { useOutside } from '../../../hooks/useOutside'
 import ContextMenu from '../ContextMenu'
+import { useDisk } from '../../../context/diskContext'
 
 type TRight = {
   setHidePanel: (value: boolean) => void
@@ -12,29 +12,29 @@ type TRight = {
 }
 
 const RightDiskBlock: FC<TRight> = memo(({ setHidePanel, hidePanel }) => {
-  const [xYPosistion, setXyPosistion] = useState({ x: 0, y: 0 })
-  const { ref, isShow, setIsShow } = useOutside(false)
+  const {
+    handleClickContextMenu,
+    xYPosistion,
+    refContextMenu,
+    showContextMenu,
+    setIsShowContextMenu,
+  } = useDisk()
 
-  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    const positionChange = {
-      x: e.pageX,
-      y: e.pageY,
-    }
-    setXyPosistion(positionChange)
-    setIsShow(true)
+  const handlerContext = (e) => {
+    handleClickContextMenu(e)
   }
+
   return (
     <div
       className={cn(styles.diskBlock, {
         [styles.showPanel]: hidePanel,
       })}
-      onContextMenu={handleClick}
+      onContextMenu={handlerContext}
     >
       <ContextMenu
-        ref={ref}
-        open={isShow}
-        setIsShow={setIsShow}
+        ref={refContextMenu}
+        open={showContextMenu}
+        setIsShow={setIsShowContextMenu}
         position={{ top: xYPosistion.y, left: xYPosistion.x }}
       />
 

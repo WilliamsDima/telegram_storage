@@ -4,7 +4,6 @@ import TitleDisk from '../../molecules/TitleDisk'
 import FoldersList from '../FoldersList'
 import { useAppSelector } from '../../../hooks/hooks'
 import Empty from '../../atoms/Logo copy'
-import BreadCrumbs from '../../molecules/BreadCrumbs'
 
 type TContent = {}
 
@@ -15,7 +14,7 @@ const DiskContent: FC<TContent> = memo(({}) => {
     return folderSelect.length
       ? folderSelect[folderSelect.length - 1]?.folders
       : folders
-  }, [folderSelect])
+  }, [folderSelect, folders])
 
   return (
     <div className={styles.diskContent}>

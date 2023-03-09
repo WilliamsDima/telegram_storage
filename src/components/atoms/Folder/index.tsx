@@ -5,6 +5,7 @@ import { IFolder } from '../../../stores/redusers/main/types'
 import { cutText } from '../../../utils/helpers'
 import { HiFolder } from 'react-icons/hi'
 import { useActions } from '../../../hooks/useActions'
+import { useDisk } from '../../../context/diskContext'
 
 type TFolder = {
   overStyles?: CSSProperties
@@ -18,9 +19,14 @@ const Folder: FC<TFolder> = memo(
   ({ overStyles, colorFolder, neon = false, name, folder }) => {
     const folderName = name ? cutText(name) : cutText(folder?.name)
     const { selectFolder } = useActions()
+    const { setIsFolderContext } = useDisk()
 
     const openFolderHandler = () => {
       folder && selectFolder(folder)
+    }
+
+    const contextHandler = () => {
+      folder && setIsFolderContext(folder)
     }
 
     return (
@@ -29,6 +35,7 @@ const Folder: FC<TFolder> = memo(
           [styles.neon]: neon,
         })}
         onDoubleClick={openFolderHandler}
+        onContextMenu={contextHandler}
       >
         <div className={styles.folder}>
           <HiFolder className={styles.folderIcon} style={overStyles} />
