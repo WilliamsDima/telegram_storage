@@ -8,13 +8,13 @@ import Empty from '../../atoms/Logo copy'
 type TContent = {}
 
 const DiskContent: FC<TContent> = memo(({}) => {
-  const { folders, folderSelect } = useAppSelector((store) => store.main)
+  const { folders, foldersPath } = useAppSelector((store) => store.main)
 
   const foldersList = useMemo(() => {
-    return folderSelect.length
-      ? folderSelect[folderSelect.length - 1]?.folders
+    return foldersPath.length
+      ? foldersPath[foldersPath.length - 1]?.folders
       : folders
-  }, [folderSelect, folders])
+  }, [foldersPath, folders])
 
   return (
     <div className={styles.diskContent}>

@@ -9,7 +9,7 @@ import BreadCrumbs from '../BreadCrumbs'
 type TDisk = {}
 
 const TitleDisk: FC<TDisk> = memo(({}) => {
-  const { filter, folderSelect } = useAppSelector((store) => store.main)
+  const { filter, foldersPath } = useAppSelector((store) => store.main)
 
   const title = useMemo(() => {
     return getDiskTitle(filter)
@@ -17,8 +17,8 @@ const TitleDisk: FC<TDisk> = memo(({}) => {
 
   return (
     <div className={styles.title}>
-      {folderSelect.length ? (
-        <BreadCrumbs title={title} folderSelect={folderSelect} />
+      {foldersPath.length ? (
+        <BreadCrumbs title={title} foldersPath={foldersPath} />
       ) : (
         <div>
           <h1>{title}</h1>

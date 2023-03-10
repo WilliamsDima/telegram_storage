@@ -8,5 +8,5 @@ export interface IStore {
   user: null | any
   filter: string | null
   folders: IFolder[]
-  folderSelect: IFolder[]
+  foldersPath: IFolder[]
 }

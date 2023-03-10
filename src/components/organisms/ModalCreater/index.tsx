@@ -1,4 +1,4 @@
-import React, { memo, FC } from 'react'
+import React, { memo, FC, useEffect } from 'react'
 import styles from './style.module.scss'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useDisk } from '../../../context/diskContext'
@@ -13,10 +13,12 @@ import { useAppSelector } from '../../../hooks/hooks'
 type Modal = {}
 
 const ModalCreater: FC<Modal> = memo(({}) => {
-  const { setIsShowModalCreater } = useDisk()
-  const { bind, reset, value, error, setError } = useInput('Новая папка')
+  const { setIsShowModalCreater, isFolderContext } = useDisk()
+  const { bind, reset, value, error, setError, setValue } = useInput(
+    isFolderContext?.name || 'Новая папка'
+  )
   const { folders } = useAppSelector((store) => store.main)
-  const { addFolder } = useActions()
+  const { addFolder, renameFolder } = useActions()
   const handleFocus = (event) => event.target.select()
 
   const closeHandler = () => {
@@ -29,13 +31,16 @@ const ModalCreater: FC<Modal> = memo(({}) => {
     const isName = folders.find((f) => f.name === value)
 
     const folder: IFolder = {
-      id: +new Date(),
-      folders: [],
+      id: isFolderContext?.id || +new Date(),
+      folders: isFolderContext?.folders || [],
       name: value,
     }
 
-    if (value.trim().length >= 1 && !isName) {
+    if (value.trim().length >= 1 && !isName && !isFolderContext) {
       addFolder(folder)
+      closeHandler()
+    } else if (value.trim().length >= 1 && !isName && isFolderContext) {
+      renameFolder(folder)
       closeHandler()
     } else if (value.trim().length > 100) {
       setError({ message: 'максимальная длина 100 символов' })
@@ -46,9 +51,17 @@ const ModalCreater: FC<Modal> = memo(({}) => {
     }
   }
 
+  useEffect(() => {
+    if (isFolderContext) {
+      setValue(isFolderContext.name)
+    } else {
+      setValue('Новая папка')
+    }
+  }, [isFolderContext])
+
   return (
     <div className={styles.modalContent}>
-      <h1>Название папки</h1>
+      <h1>{isFolderContext ? 'Новое название' : 'Название папки'}</h1>
       <AiOutlineClose className={styles.close} onClick={closeHandler} />
       <Input
         {...bind}
@@ -61,7 +74,7 @@ const ModalCreater: FC<Modal> = memo(({}) => {
 
       <div className={styles.btn}>
         <Button shadowClick={false} onClick={createHandler}>
-          создать
+          сохранить
         </Button>
       </div>
     </div>

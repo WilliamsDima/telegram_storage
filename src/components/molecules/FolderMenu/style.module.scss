@@ -19,9 +19,12 @@
     svg {
       margin-right: 1rem;
     }
+  }
 
-    .iconFolder {
-      color: $gold;
+  &:has(.iconDelete) {
+    button,
+    svg {
+      color: $red;
     }
   }
 }

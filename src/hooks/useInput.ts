@@ -20,5 +20,5 @@ export const useInput = (initialValue: any) => {
     },
   }
 
-  return { value, reset, bind, error, setError }
+  return { value, reset, bind, error, setError, setValue }
 }

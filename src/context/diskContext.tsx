@@ -20,10 +20,7 @@ type IContext = {
   setIsShowContextMenu: (value: boolean) => void
   isFolderContext: IFolder | null
   setIsFolderContext: (value: IFolder | null) => void
-  handleClickContextMenu: (
-    e: MouseEvent<HTMLDivElement>,
-    folder?: IFolder | null
-  ) => void
+  handleClickContextMenu: (e: MouseEvent<HTMLDivElement>) => void
   xYPosistion: {
     x: number
     y: number
@@ -49,14 +46,11 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
     isShow: showContextMenu,
     ref: refContextMenu,
     setIsShow: setIsShowContextMenu,
-  } = useOutside(false, () => setIsFolderContext(null))
+  } = useOutside(false)
 
   const [xYPosistion, setXyPosistion] = useState({ x: 0, y: 0 })
 
-  const handleClickContextMenu = (
-    e: MouseEvent<HTMLDivElement>,
-    folder?: IFolder | null
-  ) => {
+  const handleClickContextMenu = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
     const positionChange = {
       x: e.pageX,
@@ -64,7 +58,13 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
     }
     setXyPosistion(positionChange)
     setIsShowContextMenu(true)
-    folder && setIsFolderContext(folder)
+
+    if (
+      e.target instanceof HTMLElement &&
+      !e.target.closest('div[class*="folderWrapper"]')
+    ) {
+      setIsFolderContext(null)
+    }
   }
 
   const value = useMemo(() => {

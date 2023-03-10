@@ -2,19 +2,29 @@ import React, { memo, FC } from 'react'
 import styles from './style.module.scss'
 import cn from 'classnames'
 import Button from '../../atoms/Button'
-import { AiFillFolderAdd } from 'react-icons/ai'
-import { MdOutlineCloudDownload } from 'react-icons/md'
+import { BiRename } from 'react-icons/bi'
+import { AiFillDelete } from 'react-icons/ai'
+
 import { useDisk } from '../../../context/diskContext'
+import { useActions } from '../../../hooks/useActions'
 
 type TFolderMenu = {
   closeHandler: () => void
 }
 
 const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
-  const { setIsShowModalCreater } = useDisk()
+  const { setIsShowModalCreater, isFolderContext, setIsShowContextMenu } =
+    useDisk()
+  const { deleteFolder } = useActions()
 
   const handlerRename = () => {
     setIsShowModalCreater(true)
+    setIsShowContextMenu(false)
+    // closeHandler()
+  }
+
+  const deleteHandler = () => {
+    isFolderContext && deleteFolder(isFolderContext.id)
     closeHandler()
   }
 
@@ -22,13 +32,13 @@ const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
     <>
       <li className={styles.item}>
         <Button shadowClick={false} onClick={handlerRename}>
-          <AiFillFolderAdd className={styles.iconFolder} fontSize={24} />
+          <BiRename fontSize={24} />
           Переименовать
         </Button>
       </li>
       <li className={styles.item}>
-        <Button shadowClick={false} onClick={closeHandler}>
-          <MdOutlineCloudDownload className={styles.iconFolder} fontSize={24} />
+        <Button shadowClick={false} onClick={deleteHandler}>
+          <AiFillDelete className={styles.iconDelete} fontSize={24} />
           Удалить
         </Button>
       </li>

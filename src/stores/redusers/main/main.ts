@@ -45,7 +45,7 @@ const initialState: IStore = {
   user: null,
   filter: 'main',
   folders: folders,
-  folderSelect: [],
+  foldersPath: [],
 }
 
 const mainSlice = createSlice({

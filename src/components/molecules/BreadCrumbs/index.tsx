@@ -6,11 +6,11 @@ import { useActions } from '../../../hooks/useActions'
 import { MdOutlineArrowBack } from 'react-icons/md'
 
 type TBread = {
-  folderSelect: IFolder[]
+  foldersPath: IFolder[]
   title: string
 }
 
-const BreadCrumbs: FC<TBread> = memo(({ folderSelect, title }) => {
+const BreadCrumbs: FC<TBread> = memo(({ foldersPath, title }) => {
   const { selectFolder } = useActions()
 
   const selectHanler = (id: number) => {
@@ -19,19 +19,19 @@ const BreadCrumbs: FC<TBread> = memo(({ folderSelect, title }) => {
   return (
     <div className={styles.breadCrumbs}>
       <ul className={styles.crumbs}>
-        <li onClick={() => selectHanler(folderSelect.length - 1)}>
+        <li onClick={() => selectHanler(foldersPath.length - 1)}>
           <MdOutlineArrowBack className={styles.iconBack} />
         </li>
-        {folderSelect.map((folder, i) => {
+        {foldersPath.map((folder, i) => {
           return (
             <li
               key={folder.id.toString()}
               onClick={() =>
-                i !== folderSelect.length - 1 && selectHanler(i + 1)
+                i !== foldersPath.length - 1 && selectHanler(i + 1)
               }
             >
               <span className={styles.nameFolder}>{folder.name}</span>
-              {i !== folderSelect.length - 1 && (
+              {i !== foldersPath.length - 1 && (
                 <span className={styles.arrow}>{'>'}</span>
               )}
             </li>
