@@ -45,6 +45,8 @@ const initialState: IStore = {
   user: null,
   filter: 'main',
   folders: folders,
+  tooltip: null,
+  message: null,
   foldersPath: [],
 }
 

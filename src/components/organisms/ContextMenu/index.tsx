@@ -1,4 +1,4 @@
-import React, { memo, forwardRef, useEffect } from 'react'
+import React, { memo, forwardRef } from 'react'
 import styles from './style.module.scss'
 import cn from 'classnames'
 import { useDisk } from '../../../context/diskContext'
@@ -23,9 +23,6 @@ const ContextMenu = forwardRef<HTMLDivElement, TContextMenu>((props, ref) => {
     setIsShow(false)
   }
 
-  // useEffect(() => {
-  //   console.log(isFolderContext)
-  // }, [isFolderContext])
   return (
     <div
       style={position}

@@ -114,6 +114,32 @@
   }
 }
 
+%showAnimTooltip {
+  animation-name: showAnimTooltip;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  transform: translateY(50px);
+  opacity: 0;
+
+  @keyframes showAnimTooltip {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  }
+}
+
 %showAnimZoomMin {
   animation-name: showBlockZoomMin;
   animation-duration: 1s;

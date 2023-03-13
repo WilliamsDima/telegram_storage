@@ -7,6 +7,7 @@ import { AiFillDelete } from 'react-icons/ai'
 
 import { useDisk } from '../../../context/diskContext'
 import { useActions } from '../../../hooks/useActions'
+import { IMessage } from '../../../stores/redusers/main/types'
 
 type TFolderMenu = {
   closeHandler: () => void
@@ -15,7 +16,7 @@ type TFolderMenu = {
 const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
   const { setIsShowModalCreater, isFolderContext, setIsShowContextMenu } =
     useDisk()
-  const { deleteFolder } = useActions()
+  const { deleteFolder, setMessage, setTooltip } = useActions()
 
   const handlerRename = () => {
     setIsShowModalCreater(true)
@@ -24,8 +25,17 @@ const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
   }
 
   const deleteHandler = () => {
-    isFolderContext && deleteFolder(isFolderContext.id)
-    closeHandler()
+    const message: IMessage = {
+      text: `Вы действительно хоите удалить папку "${isFolderContext?.name}"?`,
+      callback: () => {
+        isFolderContext && deleteFolder(isFolderContext.id)
+        closeHandler()
+        setTooltip({
+          text: 'Папка удалена',
+        })
+      },
+    }
+    setMessage(message)
   }
 
   return (

@@ -1,5 +1,5 @@
 import { updateRecursivelyFolder } from './../../utils/helpers'
-import { IFolder, IStore } from '../redusers/main/types'
+import { IFolder, IMessage, IStore, ITooltip } from '../redusers/main/types'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { filterRecursivelyFolders } from '../../utils/helpers'
 
@@ -14,6 +14,8 @@ type MainActions = {
     state: IStore,
     payload: PayloadAction<IFolder | number>
   ) => void
+  setMessage: (state: IStore, payload: PayloadAction<IMessage | null>) => void
+  setTooltip: (state: IStore, payload: PayloadAction<ITooltip | null>) => void
 }
 
 export const mainActions: MainActions = {
@@ -56,5 +58,11 @@ export const mainActions: MainActions = {
     // if (state.foldersPath.length) {
     //   state.foldersPath = filterRecursivelyFolders(state.foldersPath, payload)
     // }
+  },
+  setMessage: (state, { payload }) => {
+    state.message = payload
+  },
+  setTooltip: (state, { payload }) => {
+    state.tooltip = payload
   },
 }
