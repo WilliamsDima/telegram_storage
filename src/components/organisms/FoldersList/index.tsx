@@ -1,5 +1,4 @@
 import React, { memo, FC } from 'react'
-import styles from './style.module.scss'
 import Folder from '../../atoms/Folder'
 import { IFolder } from '../../../stores/redusers/main/types'
 

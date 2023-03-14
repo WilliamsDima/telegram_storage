@@ -19,6 +19,8 @@ type IContext = {
   setIsShowModalCreater: (value: boolean) => void
   setIsShowContextMenu: (value: boolean) => void
   isFolderContext: IFolder | null
+  copyFolder: IFolder | null
+  setCopyFolder: (value: IFolder | null) => void
   setIsFolderContext: (value: IFolder | null) => void
   handleClickContextMenu: (e: MouseEvent<HTMLDivElement>) => void
   xYPosistion: {
@@ -41,6 +43,7 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
   } = useOutside(false)
 
   const [isFolderContext, setIsFolderContext] = useState(null)
+  const [copyFolder, setCopyFolder] = useState(null)
 
   const {
     isShow: showContextMenu,
@@ -79,6 +82,8 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
       setIsShowContextMenu,
       handleClickContextMenu,
       xYPosistion,
+      copyFolder,
+      setCopyFolder,
     }
   }, [
     refModalCreater,
@@ -87,6 +92,7 @@ export const DiskProvider: FC<DiskProviderType> = ({ children }) => {
     showContextMenu,
     refContextMenu,
     xYPosistion,
+    copyFolder,
   ])
 
   return <DiskContext.Provider value={value}>{children}</DiskContext.Provider>

@@ -36,6 +36,9 @@ export const mainActions: MainActions = {
     }
   },
   addFolder: (state, { payload }) => {
+    const folders = state.foldersPath.length ? state.foldersPath : state.folders
+    const isName = folders.find((f) => f.name === payload.name)
+
     if (state.foldersPath.length) {
       state.foldersPath[state.foldersPath.length - 1].folders.push(payload)
       const folder = state.foldersPath[state.foldersPath.length - 1]

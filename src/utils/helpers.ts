@@ -5,7 +5,7 @@ export const getDiskTitle = (value: string) => {
   return filterData.find((it) => it.value === value).text || value
 }
 
-export const cutText = (text: string = '', length: number = 25) => {
+export const cutText = (text: string = '', length: number = 15) => {
   return text.substring(0, length) + (text?.length > length ? '...' : '')
 }
 

@@ -4,6 +4,7 @@ import cn from 'classnames'
 import Button from '../../atoms/Button'
 import { BiRename } from 'react-icons/bi'
 import { AiFillDelete } from 'react-icons/ai'
+import { IoCopy } from 'react-icons/io5'
 
 import { useDisk } from '../../../context/diskContext'
 import { useActions } from '../../../hooks/useActions'
@@ -14,12 +15,24 @@ type TFolderMenu = {
 }
 
 const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
-  const { setIsShowModalCreater, isFolderContext, setIsShowContextMenu } =
-    useDisk()
+  const {
+    setIsShowModalCreater,
+    isFolderContext,
+    setIsShowContextMenu,
+    setCopyFolder,
+  } = useDisk()
   const { deleteFolder, setMessage, setTooltip } = useActions()
 
   const handlerRename = () => {
     setIsShowModalCreater(true)
+    setIsShowContextMenu(false)
+    // closeHandler()
+  }
+
+  const copyHandler = () => {
+    console.log(isFolderContext)
+
+    setCopyFolder(isFolderContext)
     setIsShowContextMenu(false)
     // closeHandler()
   }
@@ -40,6 +53,12 @@ const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
 
   return (
     <>
+      <li className={styles.item}>
+        <Button shadowClick={false} onClick={copyHandler}>
+          <IoCopy fontSize={24} />
+          Копировать
+        </Button>
+      </li>
       <li className={styles.item}>
         <Button shadowClick={false} onClick={handlerRename}>
           <BiRename fontSize={24} />
