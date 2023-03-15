@@ -30,8 +30,6 @@ const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
   }
 
   const copyHandler = () => {
-    console.log(isFolderContext)
-
     setCopyFolder(isFolderContext)
     setIsShowContextMenu(false)
     // closeHandler()
@@ -54,10 +52,10 @@ const FolderMenu: FC<TFolderMenu> = ({ closeHandler }) => {
   return (
     <>
       <li className={styles.item}>
-        <Button shadowClick={false} onClick={copyHandler}>
+        {/* <Button shadowClick={false} onClick={copyHandler}>
           <IoCopy fontSize={24} />
           Копировать
-        </Button>
+        </Button> */}
       </li>
       <li className={styles.item}>
         <Button shadowClick={false} onClick={handlerRename}>

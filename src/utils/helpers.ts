@@ -55,3 +55,24 @@ export const updateRecursivelyFolder = (
     console.log('error updateRecursivelyFolder', error)
   }
 }
+
+export const updateAllIdFolder = (folder: IFolder) => {
+  // глубокий поиск по дереву и обновление папки
+
+  try {
+    return folder.folders.map((f) => {
+      if (f.id === folder.id) {
+        f.id = f.id + +new Date()
+      }
+
+      return f.folders.length
+        ? {
+            ...f,
+            folders: updateAllIdFolder(f),
+          }
+        : f
+    })
+  } catch (error) {
+    console.log('error updateAllIdFolder', error)
+  }
+}

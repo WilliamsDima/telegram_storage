@@ -1,17 +1,19 @@
 import cn from 'classnames'
-import React, { FC, memo } from 'react'
+import React, { FC, memo, CSSProperties } from 'react'
 import styles from './style.module.scss'
 
 type TLoader = {
   active: boolean
+  overStyle?: CSSProperties
 }
 
-const Loader: FC<TLoader> = memo(({ active }) => {
+const Loader: FC<TLoader> = memo(({ active, overStyle }) => {
   return (
     <div
       className={cn(styles.modalLoading, {
         [styles.active]: active,
       })}
+      style={overStyle}
     >
       <div className={styles.content}>
         <div className={styles.planet}>

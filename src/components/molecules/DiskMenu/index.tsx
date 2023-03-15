@@ -7,6 +7,7 @@ import { MdOutlineCloudDownload, MdOutlineContentPaste } from 'react-icons/md'
 import { useDisk } from '../../../context/diskContext'
 import { useActions } from '../../../hooks/useActions'
 import { useAppSelector } from '../../../hooks/hooks'
+import { updateAllIdFolder } from '../../../utils/helpers'
 
 type TDiskMenu = {
   closeHandler: () => void
@@ -30,10 +31,9 @@ const DiskMenu: FC<TDiskMenu> = ({ closeHandler }) => {
 
   const pasteHandler = () => {
     const isName = foldersList.find((f) => f.name === copyFolder.name)
-    const newFolder = { ...copyFolder }
+    const newFolder = { ...copyFolder, folders: updateAllIdFolder(copyFolder) }
+    newFolder.id = +new Date()
     if (isName) {
-      console.log(1111)
-      newFolder.id = +new Date()
       newFolder.name = newFolder.name + +new Date()
     }
     addFolder(newFolder)
@@ -49,14 +49,14 @@ const DiskMenu: FC<TDiskMenu> = ({ closeHandler }) => {
           Новая папка
         </Button>
       </li>
-      {copyFolder && (
+      {/* {copyFolder && (
         <li className={styles.item}>
           <Button shadowClick={false} onClick={pasteHandler}>
             <MdOutlineContentPaste fontSize={24} />
             Вставить
           </Button>
         </li>
-      )}
+      )} */}
 
       <li className={styles.item}>
         <Button shadowClick={false} onClick={closeHandler}>

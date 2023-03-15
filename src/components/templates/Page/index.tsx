@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import React, { FC, useEffect } from 'react'
 import { useAppSelector } from '../../../hooks/hooks'
 import { useAuth } from '../../../hooks/useAuth'
-import { useOutside } from '../../../hooks/useOutside'
 import { DISK_PATH } from '../../../services/constans'
 import Loader from '../../atoms/Loader'
 import Meta from '../../atoms/Meta'
@@ -24,9 +23,7 @@ const Page: FC<Page> = ({ children }) => {
   const router = useRouter()
   const { message } = useAppSelector((store) => store.main)
 
-  useEffect(() => {
-    if (!user) router.push('/')
-  }, [user, message])
+  useEffect(() => {}, [user, message])
 
   return (
     <div className={styles.container}>
