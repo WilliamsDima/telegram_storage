@@ -51,6 +51,7 @@ export const AuthProvider: FC<AuthProviderType> = ({ children }) => {
     const userData = {
       id: user.uid,
       dateCreate: +new Date(),
+      folders: [],
     }
     try {
       await setDoc(doc(db, 'users', user.uid), userData)

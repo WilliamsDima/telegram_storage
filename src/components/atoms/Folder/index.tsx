@@ -7,7 +7,6 @@ import { HiFolder } from 'react-icons/hi'
 import { useActions } from '../../../hooks/useActions'
 import { useDisk } from '../../../context/diskContext'
 import { useRouter } from 'next/router'
-import { DISK_PATH, FOLDER } from '../../../services/constans'
 
 type TFolder = {
   overStyles?: CSSProperties
@@ -26,7 +25,6 @@ const Folder: FC<TFolder> = memo(
 
     const openFolderHandler = () => {
       folder && selectFolder(folder)
-      folder && router.push(`${DISK_PATH}${FOLDER}/${folder.id}`)
     }
 
     const contextHandler = () => {

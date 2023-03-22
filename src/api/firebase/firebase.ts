@@ -6,10 +6,12 @@ import {
   deleteDoc,
 } from 'firebase/firestore/lite'
 import { db } from '../../config/firebase'
+import { IFolder } from '../../stores/redusers/main/types'
+import { User as FirebaseUser } from 'firebase/auth'
 
-export const updateItemAPI = async (user: any, items: any) => {
-  await updateDoc(doc(db, 'users', user.id), {
-    items: items,
+export const updateItemAPI = async (user: FirebaseUser, folders: IFolder[]) => {
+  await updateDoc(doc(db, 'users', user.uid), {
+    folders,
   })
 }
 
