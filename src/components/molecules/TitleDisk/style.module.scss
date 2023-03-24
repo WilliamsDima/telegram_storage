@@ -1,0 +1,16 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/typography.scss';
+
+.title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  h1 {
+    @extend %titleDisk;
+  }
+}

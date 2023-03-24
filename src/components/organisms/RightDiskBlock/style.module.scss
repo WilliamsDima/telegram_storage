@@ -1,0 +1,45 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/typography.scss';
+
+.diskBlock {
+  width: 85%;
+  height: 100%;
+  background-color: $bgDiskRight;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &.showPanel {
+    width: calc(100% - 3rem);
+
+    .arrowIcon {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .btnHidePanel {
+    position: absolute;
+    z-index: 1;
+    left: -3rem;
+    top: 0;
+    height: 100%;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s linear;
+    opacity: 0.3;
+
+    &:hover {
+      background-color: rgba($white, 0.3);
+    }
+
+    .arrowIcon {
+      color: $white;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  }
+}

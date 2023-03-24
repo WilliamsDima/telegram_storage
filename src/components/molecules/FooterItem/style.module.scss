@@ -1,0 +1,67 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/typography.scss';
+
+.footerItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 3rem;
+
+  @media screen and (max-width: 570px) {
+    margin-right: 1rem;
+  }
+
+  .list {
+    margin-top: 2rem;
+    .item {
+      display: flex;
+      align-items: center;
+      color: $white;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      font-size: 12px;
+
+      @media screen and (max-width: 570px) {
+        font-size: 9px;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+
+      .icon {
+        width: 20px;
+        height: auto;
+        margin-right: 1rem;
+
+        @media screen and (max-width: 570px) {
+          width: 15px;
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &.logo {
+    img {
+      width: 30px;
+    }
+  }
+
+  h4 {
+    @extend %h4;
+  }
+
+  h3 {
+    font-size: 18px;
+    @extend %titleGragient;
+    margin-left: 1rem;
+    font-weight: 700;
+    line-height: normal;
+  }
+}

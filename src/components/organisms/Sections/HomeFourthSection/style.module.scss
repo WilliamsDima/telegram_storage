@@ -1,0 +1,46 @@
+@import '../../../../../styles/colors.scss';
+@import '../../../../../styles/styles.scss';
+@import '../../../../../styles/typography.scss';
+
+.item {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1050px) {
+    width: auto;
+
+    &:first-child {
+      margin-top: 5rem;
+    }
+  }
+
+  &.templateWrapp {
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      @extend %showAnimZoom;
+      .template {
+        opacity: 1;
+      }
+    }
+  }
+
+  .template {
+    width: 500px;
+    background-color: rgba($white, 0.8);
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+
+    @media screen and (max-width: 570px) {
+      width: 320px;
+      height: 200px;
+    }
+  }
+}

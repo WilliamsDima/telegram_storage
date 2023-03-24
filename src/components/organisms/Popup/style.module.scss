@@ -1,0 +1,18 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/typography.scss';
+@import '../../../../styles/styles.scss';
+
+.popup {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.2s linear;
+  &.open {
+    opacity: 1;
+    @extend %showAnimPopup;
+    visibility: visible;
+  }
+}

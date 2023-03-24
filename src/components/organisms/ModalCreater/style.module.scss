@@ -1,0 +1,48 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/typography.scss';
+
+.modalContent {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 5px;
+  position: relative;
+  width: 300px;
+
+  background-color: $white;
+  color: $black;
+
+  h1 {
+    @extend %p1;
+    line-height: 1;
+    text-align: start;
+  }
+
+  .btn {
+    button {
+      background-color: $gold;
+      color: $black;
+      padding: 0.7rem 1rem;
+      width: 100%;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    transition: all 0.2s linear;
+    transform: rotate(0deg);
+
+    font-size: 20px;
+    color: $black;
+    cursor: pointer;
+
+    &:hover {
+      color: $red;
+      transform: rotate(180deg);
+    }
+  }
+}

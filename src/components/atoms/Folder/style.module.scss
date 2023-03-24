@@ -1,0 +1,91 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/styles.scss';
+@import '../../../../styles/typography.scss';
+
+.folderWrapper {
+  width: 150px;
+  // height: 80px;
+  position: relative;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  @media screen and (max-width: 1050px) {
+    width: 100px;
+  }
+
+  @media screen and (max-width: 570px) {
+    width: 60px;
+  }
+
+  p {
+    @extend %nameFile;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .folder {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    color: $blue;
+    overflow: hidden;
+
+    @media screen and (max-width: 1050px) {
+      width: 100px;
+      height: 100px;
+    }
+
+    @media screen and (max-width: 570px) {
+      width: 60px;
+      height: 60px;
+    }
+
+    .folderIcon {
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    &:after {
+      position: absolute;
+      z-index: 1;
+      right: 1.5rem;
+      top: 40%;
+      content: '';
+      width: calc(50%);
+      height: 30%;
+      transform: translateY(0);
+      background-color: $white;
+      border-radius: 5px;
+      transition: all 0.2s linear;
+
+      @media screen and (max-width: 1050px) {
+        right: 1.7rem;
+      }
+
+      @media screen and (max-width: 570px) {
+        right: 1.8rem;
+      }
+    }
+  }
+
+  &:hover {
+    .folder::after {
+      transform: translateY(-50%);
+    }
+  }
+}
