@@ -9,7 +9,7 @@ type TSection = {
 }
 
 const Section: FC<TSection> = memo(({ children, setVisible, overStyle }) => {
-  const { visible, ref } = useIntersection(1)
+  const { visible, ref } = useIntersection(true)
 
   useEffect(() => {
     setVisible && setVisible(visible)
