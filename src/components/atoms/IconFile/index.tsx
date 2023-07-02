@@ -61,10 +61,11 @@ const Icon: FC<{ file: string }> = memo(({ file }) => {
 })
 
 const IconFile: FC<TIconFile> = memo(({ name, overStyles, file }) => {
-  const fileName = name?.substring(0, 25) + (name?.length > 25 ? '...' : '')
+  const fileName =
+    name?.substring(0, 25) + (name?.length || 0 > 25 ? '...' : '')
   return (
     <div style={overStyles} className={styles.iconWrapper}>
-      <Icon file={file} />
+      <Icon file={file || ''} />
       <p>{fileName}</p>
     </div>
   )
