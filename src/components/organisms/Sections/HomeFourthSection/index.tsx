@@ -14,9 +14,7 @@ const HomeFourthSection = memo(() => {
           [styles.visible]: visible,
         })}
       >
-        <div className={styles.template}>
-          <span>тут дожен быть скриншот</span>
-        </div>
+        <div className={styles.template}></div>
       </div>
 
       <div className={styles.item}>
