@@ -83,7 +83,7 @@ const MyParticles: FC = memo(() => {
     <Particles
       className={styles.particles}
       init={particlesInit}
-      options={particlesOptions}
+      options={particlesOptions as any}
     />
   )
 })
