@@ -1,4 +1,4 @@
-import Empty from '@atoms/Logo copy'
+import Empty from '@atoms/Empty'
 import { useAppSelector } from '@hooks/hooks'
 import TitleDisk from '@molecules/TitleDisk'
 import FoldersList from '@organisms/FoldersList'
